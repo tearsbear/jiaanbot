@@ -227,11 +227,12 @@ def youtube_video_handler(update, context):
   destination = 'youtube_video/'
   urls = update.message.text
   try:
-    yt = YouTube(urls)
-    stream = yt.streams.first()
+    # yt = YouTube(urls)
+    # stream = yt.streams.first()
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
     update.message.reply_text('downloading the video file...')
-    out_file = stream.download(output_path = destination)
+    out_file = YouTube(urls).streams.get_highest_resolution().download(output_path = destination)
+    # out_file = stream.download(output_path = destination)
 
     url = open(out_file, 'rb')
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
