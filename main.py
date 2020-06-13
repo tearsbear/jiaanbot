@@ -57,7 +57,8 @@ def start(update, context):
       'terus pilih yang kamu mau'
     ]
     url = 'https://imgur.com/u4fUN96'
-    msg1 = 'wassupp babyy😘'
+    # msg1 = 'wassupp babyy😘'
+    msg1 = 'wassupp'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
     update.message.reply_text(msg1)
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.UPLOAD_PHOTO)
