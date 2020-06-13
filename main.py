@@ -177,7 +177,7 @@ def youtube_music_handler(update, context):
   context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING) 
   update.message.reply_text('okay wait...')
   #destination path, recommend to use path where this python file is there
-  destination = '/Users/jiaan/Desktop/ji/project/python/teleBot/audio/'
+  destination = 'youtube_music/'
   urls = update.message.text
   try:
     yt = YouTube(urls)
@@ -224,7 +224,7 @@ def youtube_video(update, context):
 def youtube_video_handler(update, context):
   context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
   update.message.reply_text('okay let me search that video')
-  destination = '/Users/jiaan/Desktop/ji/project/python/teleBot/video/'
+  destination = 'youtube_video/'
   urls = update.message.text
   try:
     yt = YouTube(urls)
