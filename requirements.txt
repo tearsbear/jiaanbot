@@ -1,6 +1,5 @@
 python-telegram-bot==12.7
-pytube==9.6.0
-pytube3==9.6.4
+pytube3 @ git+https://gitlab.com/obuilds/public/pytube@10c57109f87fe864d8f38bbc8
 requests==2.23.0
 urllib3==1.25.9
 youtube-search==0.1.3
