@@ -56,9 +56,10 @@ def start(update, context):
       'ketik slash(/) dulu bih', 
       'terus pilih yang kamu mau'
     ]
-    # ids = 884653961
-    ids = -425234062
-    # context.bot.send_message(chat_id=-425234062, text='helllo')
+    idj = 884653961
+    idz = 1032936851
+    idg = -425234062
+    context.bot.send_message(chat_id=idz, text='hello zahwa')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
