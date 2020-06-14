@@ -58,7 +58,7 @@ def start(update, context):
     ]
     # ids = 884653961
     ids = -425234062
-    context.bot.send_message(chat_id=-425234062, text='helllo')
+    # context.bot.send_message(chat_id=-425234062, text='helllo')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
@@ -534,8 +534,8 @@ def listen_curhat(update, context):
     update.message.reply_text('makasih udah mau curhat')
     return ConversationHandler.END
   else:
-  update.message.reply_text('oh gt ya bih')
-  context.bot.send_message(chat_id=-425234062, text=curhatan)
+    update.message.reply_text('oh gt ya bih')
+    context.bot.send_message(chat_id=-425234062, text=curhatan)
 
 def error_callback(update, context):
   try:
