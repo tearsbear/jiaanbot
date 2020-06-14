@@ -579,8 +579,5 @@ def main():
 
   updater.idle()
 
-  bot.send_message(chat_id: id, text: "hello world")
-
-
 if __name__ == '__main__':
     main()
