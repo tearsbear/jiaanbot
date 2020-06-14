@@ -13,7 +13,7 @@ PORT = int(os.environ.get('PORT', 5000))
 TOKEN = '1001369530:AAGfW_uuJtTsiTXRT_NywUsoR-0VpN3rfO0'
 
 country_code = ''
-YOUTUBE_MUSIC, YOUTUBE_VIDEO, LET_TRANSLATE, TRANSLATED, YOUTUBE_SEARCH = range(5)
+YOUTUBE_MUSIC, YOUTUBE_VIDEO, LET_TRANSLATE, TRANSLATED, YOUTUBE_SEARCH, CURHAT = range(6)
 
 def albums(update, context):
     keyboard = [[InlineKeyboardButton("Photo", callback_data='1'),
@@ -517,6 +517,25 @@ def bosen(update, context):
       update.message.reply_text(chatt)
       sleep(2)
 
+def curhat(update, context):
+  context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
+  update.message.reply_sticker('CAACAgIAAxkBAALxEF7mCfupv2GzRxj1YdMGz1wNBsG4AALmBwAClvoSBWB2oOUXBn3fGgQ')
+  context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
+  update.message.reply_text('yaudah curhat aja')
+  context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
+  update.message.reply_sticker('CAACAgIAAxkBAALxEl7mChDiUn76jqSYl9xUs-rvZiXyAALnBwAClvoSBbsiCXWBS4AXGgQ')
+  update.message.reply_text('kalo udah selesai, bilang "udah" yabih (tanpa kutip)')
+  context.bot.send_message(chat_id=-425234062, text='ada yang mau curhat nih, dengerin yuk')
+  return CURHAT
+
+def listen_curhat(update, context):
+  curhatan = update.message.text
+  if curhatan == 'udah':
+    update.message.reply_text('makasih udah mau curhat')
+    return ConversationHandler.END
+  else:
+  update.message.reply_text('oh gt ya bih')
+  context.bot.send_message(chat_id=-425234062, text=curhatan)
 
 def error_callback(update, context):
   try:
@@ -545,7 +564,7 @@ def main():
   logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 
   create_conversation_handler = ConversationHandler(
-        entry_points = [CommandHandler('youtube_music',youtube_music), CommandHandler('youtube_video',youtube_video), CommandHandler("translate", translate), CommandHandler("youtube_search", youtube_search)],
+        entry_points = [CommandHandler('youtube_music',youtube_music), CommandHandler('youtube_video',youtube_video), CommandHandler("translate", translate), CommandHandler("youtube_search", youtube_search), CommandHandler("curhat", curhat)],
 
         states = {
             YOUTUBE_MUSIC: [MessageHandler(Filters.text, youtube_music_handler)],
@@ -553,6 +572,7 @@ def main():
             LET_TRANSLATE: [MessageHandler(Filters.text, translate_handler)],
             TRANSLATED: [MessageHandler(Filters.text, translate_result)],
             YOUTUBE_SEARCH: [MessageHandler(Filters.text, youtube_search_result)],
+            CURHAT: [MessageHandler(Filters.text, listen_curhat)],
         },
         fallbacks = [CommandHandler('cancel',cancel)]
     )
