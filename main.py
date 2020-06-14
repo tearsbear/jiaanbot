@@ -526,8 +526,15 @@ def curhat(update, context):
   context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
   update.message.reply_sticker('CAACAgIAAxkBAALxEl7mChDiUn76jqSYl9xUs-rvZiXyAALnBwAClvoSBbsiCXWBS4AXGgQ')
   update.message.reply_text('kalo udah selesai, bilang "udah" yabih (tanpa kutip)')
-  context.bot.send_message(chat_id=idj, text='ada yang mau curhat nih, dengerin yuk')
-  return CURHAT
+  if(update.effective_chat.id == idz):
+    context.bot.send_message(chat_id=idj, text='Zahwa mau curhat nih, dengerin yuk')
+    return CURHAT
+  elif(update.effective_chat.id == idj):
+    context.bot.send_message(chat_id=idz, text='Jiaan mau curhat nih, dengerin yuk')
+    return CURHAT
+  else:
+    update.message.reply_text('yang bisa curhat cmn zahwa sama jian, kamu siapa?')
+    return ConversationHandler.END
 
 def listen_curhat(update, context):
   curhatan = update.message.text
@@ -535,11 +542,16 @@ def listen_curhat(update, context):
     update.message.reply_text('makasih udah mau curhat')
     return ConversationHandler.END
   else:
-    update.message.reply_text('oh gt ya bih')
-    context.bot.send_message(chat_id=idj, text=curhatan)
-
-def get_id(update, context):
-  print(update.effective_chat.id)
+    if(update.effective_chat.id == idz):
+      update.message.reply_text('oh gt ya bih')
+      update.message.reply_text('curhatan kamu bakal ke kirim ke Jiaan')
+      context.bot.send_message(chat_id=idj, text=curhatan)
+    elif(update.effective_chat.id == idj):
+      update.message.reply_text('oh gt ya bih')
+      update.message.reply_text('curhatan kamu bakal ke kirim ke Zahwa')
+      context.bot.send_message(chat_id=idz, text=curhatan)
+    else:
+      return ConversationHandler.END   
 
 def error_callback(update, context):
   try:
@@ -593,7 +605,6 @@ def main():
   dispatcher.add_handler(CommandHandler("pink_lava", pink_lava))
   dispatcher.add_handler(CommandHandler("youtube_trending", youtube_trending))
   dispatcher.add_handler(CommandHandler("aku_bosen", bosen))
-  dispatcher.add_handler(CommandHandler("get_id", get_id))
 
   dispatcher.add_error_handler(error_callback)
 
