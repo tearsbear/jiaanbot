@@ -538,6 +538,9 @@ def listen_curhat(update, context):
     update.message.reply_text('oh gt ya bih')
     context.bot.send_message(chat_id=idj, text=curhatan)
 
+def get_id(update, context):
+  print(update.effective_chat.id)
+
 def error_callback(update, context):
   try:
       raise context.error
@@ -590,6 +593,7 @@ def main():
   dispatcher.add_handler(CommandHandler("pink_lava", pink_lava))
   dispatcher.add_handler(CommandHandler("youtube_trending", youtube_trending))
   dispatcher.add_handler(CommandHandler("aku_bosen", bosen))
+  dispatcher.add_handler(CommandHandler("get_id", get_id))
 
   dispatcher.add_error_handler(error_callback)
 
