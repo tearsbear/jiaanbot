@@ -502,11 +502,11 @@ def bosen(update, context):
   for chats in msg_array1:
       context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
       update.message.reply_text(chats)
-  sleep(3)
+  sleep(4)
   for chatz in msg_array2:
       context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
       update.message.reply_text(chatz)
-  sleep(3)
+  sleep(4)
   for chatt in msg_array3:
       context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
       update.message.reply_text(chatt)
