@@ -58,7 +58,7 @@ def start(update, context):
     ]
     # ids = 884653961
     ids = -425234062
-    update.message.reply_text(chat_id=ids, text='helllo')
+    context.bot.send_message(chat_id=-425234062, text='helllo')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
