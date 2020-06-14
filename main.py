@@ -56,7 +56,8 @@ def start(update, context):
       'ketik slash(/) dulu bih', 
       'terus pilih yang kamu mau'
     ]
-    ids = 884653961
+    # ids = 884653961
+    ids = -425234062
     update.message.reply_text(chat_id=ids, text='helllo')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
