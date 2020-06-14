@@ -467,22 +467,22 @@ def bosen(update, context):
   msg3 = 'Hmmmm... \n yaudah bentar deh aku coba kasih kamu sesuatu biar ga bosen'
   msg4 = 'si jiaan cuman nitip ke gua buat ngasih ini doang'
   msg_array1 = [
-    'ini playlist2 music nya si jian \n',
-    'https://music.apple.com/id/playlist/songs-that-i-hear-when-youre-not-around-smp/pl.u-RRbVvBVF3AJ1qWb \n'
+    'ini playlist2 music nya si jian',
+    'https://music.apple.com/id/playlist/songs-that-i-hear-when-youre-not-around-smp/pl.u-RRbVvBVF3AJ1qWb',
     'https://music.apple.com/id/playlist/j/pl.u-b3b8VGGCyW2vJgE'
   ]
   msg_array2 = [
-    'ini dia nitip playlist2 youtube buat lu, nonton aja dah \n',
-    'https://www.youtube.com/playlist?list=PLAbf_gIWb04EvVTzPINn87y5eOQm0vSwy \n'
-    'https://www.youtube.com/playlist?list=PLAbf_gIWb04GNhyHIAC9GXXcGofuuEkVi \n'
-    'https://www.youtube.com/playlist?list=PLAbf_gIWb04GG_zzRJFwJEFP28Wv3Bie0 \n'
+    'ini dia nitip playlist2 youtube buat lu, nonton aja dah',
+    'https://www.youtube.com/playlist?list=PLAbf_gIWb04EvVTzPINn87y5eOQm0vSwy',
+    'https://www.youtube.com/playlist?list=PLAbf_gIWb04GNhyHIAC9GXXcGofuuEkVi',
+    'https://www.youtube.com/playlist?list=PLAbf_gIWb04GG_zzRJFwJEFP28Wv3Bie0'
   ]
   msg_array3 = [
-    'kalo ga nih order makanan aja dah, kalo udah kasih tau si jiaan aja ntr dibayar ok \n'
-    'https://food.grab.com/id/en/ \n'
-    'https://food.grab.com/id/en/restaurant/mcdonald-s-cipayung-delivery/IDGFSTI000007sv \n'
-    'https://food.grab.com/id/en/restaurant/richeese-factory-graha-cijantung-delivery/IDGFSTI0000227q \n'
-    'https://food.grab.com/id/en/restaurant/ayam-gepuk-pak-gembus-tanah-merdeka-ciracas-delivery/IDGFSTI00001zwl \n'
+    'kalo ga nih order makanan aja dah, kalo udah kasih tau si jiaan aja ntr dibayar ok',
+    'https://food.grab.com/id/en/',
+    'https://food.grab.com/id/en/restaurant/mcdonald-s-cipayung-delivery/IDGFSTI000007sv',
+    'https://food.grab.com/id/en/restaurant/richeese-factory-graha-cijantung-delivery/IDGFSTI0000227q',
+    'https://food.grab.com/id/en/restaurant/ayam-gepuk-pak-gembus-tanah-merdeka-ciracas-delivery/IDGFSTI00001zwl'
   ]
   context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)  
   update.message.reply_sticker(stc1)
