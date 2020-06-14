@@ -11,6 +11,9 @@ from bs4 import BeautifulSoup
 import os
 PORT = int(os.environ.get('PORT', 5000))
 TOKEN = '1001369530:AAGfW_uuJtTsiTXRT_NywUsoR-0VpN3rfO0'
+idj = 884653961
+idz = 1032936851
+idg = -425234062
 
 country_code = ''
 YOUTUBE_MUSIC, YOUTUBE_VIDEO, LET_TRANSLATE, TRANSLATED, YOUTUBE_SEARCH, CURHAT = range(6)
@@ -56,10 +59,7 @@ def start(update, context):
       'ketik slash(/) dulu bih', 
       'terus pilih yang kamu mau'
     ]
-    idj = 884653961
-    idz = 1032936851
-    idg = -425234062
-    context.bot.send_message(chat_id=idz, text='hello zahwa')
+    # context.bot.send_message(chat_id=idz, text='hello zahwa')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
@@ -526,7 +526,7 @@ def curhat(update, context):
   context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
   update.message.reply_sticker('CAACAgIAAxkBAALxEl7mChDiUn76jqSYl9xUs-rvZiXyAALnBwAClvoSBbsiCXWBS4AXGgQ')
   update.message.reply_text('kalo udah selesai, bilang "udah" yabih (tanpa kutip)')
-  context.bot.send_message(chat_id=-425234062, text='ada yang mau curhat nih, dengerin yuk')
+  context.bot.send_message(chat_id=idj, text='ada yang mau curhat nih, dengerin yuk')
   return CURHAT
 
 def listen_curhat(update, context):
@@ -536,7 +536,7 @@ def listen_curhat(update, context):
     return ConversationHandler.END
   else:
     update.message.reply_text('oh gt ya bih')
-    context.bot.send_message(chat_id=-425234062, text=curhatan)
+    context.bot.send_message(chat_id=idj, text=curhatan)
 
 def error_callback(update, context):
   try:
