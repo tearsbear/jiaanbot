@@ -56,6 +56,8 @@ def start(update, context):
       'ketik slash(/) dulu bih', 
       'terus pilih yang kamu mau'
     ]
+    ids = 884653961
+    update.message.reply_text(chat_id=ids, text='helllo')
     url = 'https://imgur.com/u4fUN96'
     msg1 = 'wassupp babyy😘'
     context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
@@ -576,6 +578,9 @@ def main():
   updater.bot.setWebhook('https://jiaanbot.herokuapp.com/' + TOKEN)
 
   updater.idle()
+
+  bot.send_message(chat_id: id, text: "hello world")
+
 
 if __name__ == '__main__':
     main()
