@@ -543,10 +543,10 @@ def listen_curhat(update, context):
     return ConversationHandler.END
   else:
     if(update.effective_chat.id == idz):
-      update.message.reply_text('curhatan kamu bakal ke kirim ke Jiaan')
+      update.message.reply_text('curhatan kamu bakal dikirim ke Jiaan')
       context.bot.send_message(chat_id=idj, text=curhatan)
     elif(update.effective_chat.id == idj):
-      update.message.reply_text('curhatan kamu bakal ke kirim ke Zahwa')
+      update.message.reply_text('curhatan kamu bakal dikirim ke Zahwa')
       context.bot.send_message(chat_id=idz, text=curhatan)
     else:
       return ConversationHandler.END   
