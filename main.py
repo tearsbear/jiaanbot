@@ -568,7 +568,7 @@ def reminder_birthday():
     stc4 = 'CAACAgIAAxkBAAEBrL1f1RRdl0i_K9AfITSmy4XH3jA8tgACtQADe8B9E5Yg38LQuSaEHgQ'
     stc5 = 'CAACAgIAAxkBAAEBrMlf1RyOw3jBA1dL78qP9iJPWdPL_QACaQADpsrIDONYOer9B49cHgQ'
     bot.send_sticker(idj, stc1)
-    bot.send_message(idj, 'mam buah jambu \n sambil menyelem.')
+    bot.send_message(idj, 'mam buah jambu \nsambil menyelem.')
     bot.send_message(idj, 'maaf ya, ganggu kamu malem2.')
     bot.send_sticker(idj, stc2)
     bot.send_chat_action(chat_id=idj, action=telegram.ChatAction.TYPING)
