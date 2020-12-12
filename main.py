@@ -551,6 +551,47 @@ def listen_curhat(update, context):
     else:
       return ConversationHandler.END   
 
+def reminder_birthday():
+    bot = telegram.Bot(token=TOKEN)
+    msg = [
+      'semoga kamu tetap sehat selalu ya, panjang umur \n'
+      'rezeki nya lancar, dan semoga yang kamu mau bakal terwujud',
+      'amin...',
+      'ohiya, jangan sedih terus😒 \n'
+      'semangat zahwa, aku tau hidup ini emang susah, berat, bingungin buat kamu. \n \n'
+      'tapi percaya deh, kamu pasti bakal nemu jawaban nya, kamu pasti bisa dapetin apa yang kamu mau, dan kamu juga bisa lewatin itu semua kalo kamu emang sabar dan yakin ngejalanin nya.',
+      'jangan nyerah ya zahwa, semangat🤗'
+    ]
+    stc1 = 'CAACAgIAAxkBAAEBrLdf1RQ4NLWYueCM8OozP_W0YhTrhQACZwEAAhZCawpzib7OpZZoIh4E'
+    stc2 = 'CAACAgIAAxkBAAEBrLtf1RRbwOs3-V5CYsn95C2mjIbJ-QACtAADe8B9E7SlTBuzXJXGHgQ'
+    stc3 = 'CAACAgIAAxkBAAEBrL9f1RSN8LCz8FkWdVZRH7zh_OB7-gACfAEAAhZCawrtoK_LB7yPEx4E'
+    stc4 = 'CAACAgIAAxkBAAEBrL1f1RRdl0i_K9AfITSmy4XH3jA8tgACtQADe8B9E5Yg38LQuSaEHgQ'
+    stc5 = 'CAACAgIAAxkBAAEBrMlf1RyOw3jBA1dL78qP9iJPWdPL_QACaQADpsrIDONYOer9B49cHgQ'
+    bot.send_sticker(idj, stc1)
+    bot.send_message(idj, 'mam buah jambu \n sambil menyelem.')
+    bot.send_message(idj, 'maaf ya, ganggu kamu malem2.')
+    bot.send_sticker(idj, stc2)
+    bot.send_chat_action(chat_id=idj, action=telegram.ChatAction.TYPING)
+    sleep(2)
+    bot.send_message(idj, 'selamat ulang tahun zahwa')
+    bot.send_chat_action(chat_id=idj, action=telegram.ChatAction.TYPING)
+    bot.send_message(idj, 'dari aku si bot kesayangan kamu😘')
+    bot.send_sticker(idj, stc3)
+    sleep(2)
+    for chats in msg:
+      bot.send_chat_action(chat_id=idj, action=telegram.ChatAction.TYPING)
+      bot.send_message(idj, chats)
+      sleep(2)
+    bot.send_sticker(idj, stc4)
+    sleep(2)
+    bot.send_message(idj, 'btw, hadiahnya ini aja yaa😘')
+    bot.send_message(idj, 'https://shopee.co.id/ZR-LEATHER-BAG-COLLECTION-i.129589467.5139055799')
+    sleep(2)
+    bot.send_chat_action(chat_id=idj, action=telegram.ChatAction.TYPING)
+    bot.send_message(idj, 'bye zahwa')
+    bot.send_sticker(idj, stc5)
+
+
 def error_callback(update, context):
   try:
       raise context.error
@@ -611,8 +652,8 @@ def main():
                         port=int(PORT),
                         url_path=TOKEN)
   updater.bot.setWebhook('https://jiaanbot.herokuapp.com/' + TOKEN)
-
   updater.idle()
+  reminder_birthday()
 
 if __name__ == '__main__':
     main()
