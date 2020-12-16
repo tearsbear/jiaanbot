@@ -653,7 +653,7 @@ def main():
                         url_path=TOKEN)
   updater.bot.setWebhook('https://jiaanbot.herokuapp.com/' + TOKEN)
   updater.idle()
-  reminder_birthday()
+#   reminder_birthday()
 
 if __name__ == '__main__':
     main()
