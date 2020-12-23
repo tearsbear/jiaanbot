@@ -599,13 +599,9 @@ def schedule_checker():
         schedule.run_pending()
         sleep(1)
 
-def reminder():
+def reminder_morning():
     bot = telegram.Bot(token=TOKEN)
-    bot.send_message(idj, 'halo jiaan')
-
-def test():
-    bot = telegram.Bot(token=TOKEN)
-    bot.send_message(idj, 'halo j')    
+    bot.send_message(idj, 'halo jiaan')  
 
 def error_callback(update, context):
   try:
@@ -663,10 +659,9 @@ def main():
   dispatcher.add_error_handler(error_callback)
 
   # Create the job in schedule.
-  schedule.every().minute.at(":01").do(reminder)
+  schedule.every().day.at("06:00").do(reminder_morning)
 
   Thread(target=schedule_checker).start() 
-  test()
 
  # Start the Bot
   updater.start_webhook(listen="0.0.0.0",
