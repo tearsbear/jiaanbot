@@ -668,9 +668,6 @@ def main():
   # Create the job in schedule.
   schedule.every().minute.at(":50").do(reminder)
 
-  # Spin up a thread to run the schedule check so it doesn't block your bot.
-  # This will take the function schedule_checker which will check every second
-  # to see if the scheduled job needs to be ran.
   Thread(target=schedule_checker).start() 
 #   reminder_birthday()
 
