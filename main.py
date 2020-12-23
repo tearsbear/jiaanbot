@@ -601,7 +601,61 @@ def schedule_checker():
 
 def reminder_morning():
     bot = telegram.Bot(token=TOKEN)
-    bot.send_message(idj, 'halo jiaan')  
+    stc1 = 'CAACAgIAAxkBAAEBrLdf1RQ4NLWYueCM8OozP_W0YhTrhQACZwEAAhZCawpzib7OpZZoIh4E'
+    stc2 = 'CAACAgIAAxkBAAEBtb5f43IV6xrd44kF3j1D7SiHDJoFdwACiwADpsrIDOgouKQw9fPAHgQ'
+    stc3 = 'CAACAgIAAxkBAAEBtcBf43M3BnD1xU6aefzsN8-fYLizKgACDQEAAladvQpG_UMdBUTXlx4E'
+    stc4 = 'CAACAgIAAxkBAAEBtcJf43M7CFq_vCRuhnWDfG-QxraIFwACtQADe8B9E5Yg38LQuSaEHgQ'
+    bot.send_sticker(idz, stc1)
+    bot.send_message(idz, 'pagi zahwa😘')
+    sleep(2)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'yuk bangun, udah jam 7 nih. \ngih sana cuci muka, sikat gigi & minum air putih')
+    sleep(1)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'ohiya jangan lupa workout🙄')
+    bot.send_sticker(idz, stc2)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'have a good day bihhh 💋')
+    bot.send_sticker(idz, stc3)
+    bot.send_sticker(idz, stc4)
+
+
+def reminder_noon():
+    bot = telegram.Bot(token=TOKEN)  
+    stc1 = 'CAACAgIAAxkBAAEBtcRf43uRH-7N-yFX54cmovSeQfkRggACAgEAAladvQpO4myBy0Dk_x4E'
+    stc2 = 'CAACAgIAAxkBAAEBtcZf43uf8P9ULSVx8nm4-Pi0TAyL1AACCQADwDZPE-_NG6JK_3GVHgQ'
+    bot.send_message(idz, 'siang bihh😍')
+    sleep(1)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'lagi apa?')
+    bot.send_sticker(idz, stc1)
+    sleep(2)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'jangan')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'lupa')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'makan')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'soalnya udah siang ini, nnti perut nya ngek ngek ngekkk klo g makan')
+    bot.send_sticker(idz, stc2)
+
+def reminder_evening():
+    bot = telegram.Bot(token=TOKEN)
+    stc1 = 'CAACAgIAAxkBAAEBtchf433IGxL8N2qFWW5kiI7hnoNlOgAC2gEAAladvQqbrKnww9BViB4E'
+    bot.send_message(idz, 'soreeee bihhh🥰')
+    sleep(1)
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'udah jam 5 nihh')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'its time to take a showerrr babe')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'nnti bau aseeeeem klo g mandi🤪')
+    bot.send_chat_action(chat_id=idz, action=telegram.ChatAction.TYPING)
+    bot.send_message(idz, 'mandi yaa jangan lupaa')
+    bot.send_sticker(idz, stc1)    
+
+ 
 
 def error_callback(update, context):
   try:
@@ -660,6 +714,8 @@ def main():
 
   # Create the job in schedule.
   schedule.every().day.at("06:00").do(reminder_morning)
+  schedule.every().day.at("12:00").do(reminder_noon)
+  schedule.every().day.at("17:00").do(reminder_evening)
 
   Thread(target=schedule_checker).start() 
 
