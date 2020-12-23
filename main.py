@@ -1,4 +1,4 @@
-import os, telegram, pytube, logging, os, googletrans, json, urllib.request, random
+import os, telegram, pytube, schedule, logging, os, googletrans, json, urllib.request, random
 from telegram.error import (TelegramError, Unauthorized, BadRequest, TimedOut, ChatMigrated, NetworkError)
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup                           
 from telegram.ext import Updater, MessageHandler, ConversationHandler, CallbackQueryHandler, CommandHandler, Filters
@@ -9,6 +9,9 @@ from googletrans import Translator
 from gtts import gTTS 
 from bs4 import BeautifulSoup
 import os
+from threading import Thread
+
+
 PORT = int(os.environ.get('PORT', 5000))
 TOKEN = '1001369530:AAGfW_uuJtTsiTXRT_NywUsoR-0VpN3rfO0'
 idj = 884653961
@@ -591,6 +594,14 @@ def reminder_birthday():
     bot.send_message(idz, 'bye zahwa')
     bot.send_sticker(idz, stc5)
 
+def schedule_checker():
+    while True:
+        schedule.run_pending()
+        sleep(1)
+
+def reminder():
+    bot = telegram.Bot(token=TOKEN)
+    bot.send_message(idj, 'halo jiaan')
 
 def error_callback(update, context):
   try:
@@ -653,6 +664,14 @@ def main():
                         url_path=TOKEN)
   updater.bot.setWebhook('https://jiaanbot.herokuapp.com/' + TOKEN)
   updater.idle()
+
+  # Create the job in schedule.
+  schedule.every().minute.at(":50").do(reminder)
+
+  # Spin up a thread to run the schedule check so it doesn't block your bot.
+  # This will take the function schedule_checker which will check every second
+  # to see if the scheduled job needs to be ran.
+  Thread(target=schedule_checker).start() 
 #   reminder_birthday()
 
 if __name__ == '__main__':
