@@ -10,7 +10,9 @@ from gtts import gTTS
 from bs4 import BeautifulSoup
 import os
 from threading import Thread
+from flask import Flask, render_template, request, url_for, redirect
 
+app = Flask(__name__)
 
 PORT = int(os.environ.get('PORT', 5000))
 TOKEN = '1001369530:AAGfW_uuJtTsiTXRT_NywUsoR-0VpN3rfO0'
@@ -124,7 +126,7 @@ def songs(update, context):
       'lagi sending....',
       'sabaaaarrrrrrr'
     ]
-    url = open('13.mp3', 'rb')
+    url = open('songs/13.mp3', 'rb')
     for chats in msg_array:
       context.bot.send_chat_action(chat_id=update.effective_chat.id, action=telegram.ChatAction.TYPING)
       update.message.reply_text(chats)
@@ -655,7 +657,10 @@ def reminder_evening():
     bot.send_message(idz, 'mandi yaa jangan lupaa')
     bot.send_sticker(idz, stc1)    
 
- 
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html')
 
 def error_callback(update, context):
   try:
@@ -728,3 +733,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    app.run()
